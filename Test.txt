@@ -1,1 +1,80 @@
-Test
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class HW {
+
+    //Methods
+
+    public static int getEmployeeTotalSalary(String filename) throws IOException {
+        return Files.lines(Paths.get(filename))
+                .map(s -> s.substring(s.lastIndexOf(':') + 1, s.length()))
+                .mapToInt(Integer::parseInt)
+                .sum();
+    }
+
+    public static List<String> getNonDuplicateEmployeeList(String filename) throws IOException {
+        return Files.lines(Paths.get(filename))
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    public static void overwriteNonDuplicatesInTheNewFile(String inputFilename, String outputFilename) throws IOException {
+        getNonDuplicateEmployeeList(inputFilename)
+                .forEach(s -> {
+                    try {
+                        Files.write(Paths.get(outputFilename), s.concat("\n").getBytes(), StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+    }
+
+    public static long getDuplicatesSum(String filePath) throws IOException {
+        List<String> employeeList = Files.lines(Paths.get(filePath)).collect(Collectors.toList());
+        return employeeList.stream().distinct().filter(n -> employeeList.stream().filter(x -> Objects.equals(x, n)).count() > 1).count();
+        //return employeeList.stream().filter(n -> Collections.frequency(employeeList, n) > 1).count();
+    }
+
+    //Tests
+
+    @Test
+    public void getEmployeeTotalSalaryTest() throws IOException {
+        long result = getEmployeeTotalSalary("C:\\JavaProject\\j2ee_01\\examples\\src\\db.txt");
+        Assert.assertEquals("The test is a success", 8000, result);
+    }
+
+    @Test
+    public void getDuplicatesSumTest() throws IOException {
+        long result = getDuplicatesSum("C:\\JavaProject\\j2ee_01\\examples\\src\\db.txt");
+        Assert.assertEquals("The test is a success", 1, result);
+    }
+
+    @Test
+    public void getNonDuplicateEmployeeListTest() throws IOException {
+        List<String> correctEmployeList = new ArrayList<>(Arrays.asList(
+                "Dmitriy:Titov:23:1500",
+                "Denis:Bidnenko:27:2400",
+                "Slavik:Sokolov:23:1700"));
+        List<String> result = getNonDuplicateEmployeeList("C:\\JavaProject\\j2ee_01\\examples\\src\\db.txt");
+        Assert.assertEquals("The test is a success", correctEmployeList, result);
+    }
+
+    @Test
+    public void overwriteNonDuplicatesInTheNewFileTest() throws IOException {
+        List<String> correctEmployeList = new ArrayList<>(Arrays.asList(
+                "Dmitriy:Titov:23:1500",
+                "Denis:Bidnenko:27:2400",
+                "Slavik:Sokolov:23:1700"));
+        overwriteNonDuplicatesInTheNewFile("C:\\JavaProject\\j2ee_01\\examples\\src\\db.txt", "C:\\JavaProject\\j2ee_01\\examples\\src\\new.txt");
+        List<String> result = Files.lines(Paths.get("C:\\JavaProject\\j2ee_01\\examples\\src\\new.txt"))
+                .collect(Collectors.toList());
+        Assert.assertEquals("The test is a success", correctEmployeList, result);
+    }
+}
