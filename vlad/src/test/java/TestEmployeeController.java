@@ -26,7 +26,7 @@ public class TestEmployeeController {
         employeeController.listCreation();
 
         ArrayList<Employee> result = employeeController.getEmployeeArrayList();
-
+        // compare employees
 //        result.add(new Employee("Vasia", "Pupkin", 4500));
 //        result.add(new Employee("Kolia", "Zopkin", 5000));
 //        result.add(new Employee("Mulia", "Sumkin", 5500));
