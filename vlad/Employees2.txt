@@ -12,3 +12,5 @@ Jimbo : Pushkin : 10000
 Vano : Pupkin : 4500
 Ogogo : Lolipop : 7500
 Ololo : Emocii : 1500
+
+
