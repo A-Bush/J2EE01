@@ -5,6 +5,6 @@ package webcamp.j2ee01;
  */
 public class TestMain {
     public static void main(String[] args) {
-        System.out.println("Hello Roma!!!");
+        System.out.println("Hello world!!!");
     }
 }
