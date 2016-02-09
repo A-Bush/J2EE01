@@ -1,4 +1,4 @@
-package com.test;
+package com.test.io_java8;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,12 +1,10 @@
-import com.test.Employee;
-import com.test.EmployeeController;
+import com.test.io_java8.Employee;
+import com.test.io_java8.EmployeeController;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Created by vladimir on 30.01.16.

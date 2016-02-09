@@ -1,4 +1,4 @@
-package com.test;
+package com.test.io_java8;
 
 /**
  * Created by vladimir on 27.01.16.
