@@ -1,5 +1,5 @@
-import com.test.jdbc.Human;
-import com.test.jdbc.PassportData;
+import com.test.jdbc.model.Human;
+import com.test.jdbc.model.PassportData;
 import org.junit.Test;
 
 import java.sql.*;
@@ -9,13 +9,14 @@ import java.util.List;
 /**
  * Created by vladimir on 09.02.16.
  */
+
 public class TestDb {
     private static final String LOGIN = "root";
     private static final String PASSWORD = "root";
     private static final String URL = "jdbc:mysql://localhost:3306/test_test";
 
     @Test
-    public void testDBparsingPassport() {
+    public void testDBParsingPassport() {
         String sql = "SELECT * FROM passport_data";
         try (Connection connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(sql);
