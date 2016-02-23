@@ -11,13 +11,10 @@ public class PassportDao implements GeneralDaoInterface<PassportData>{
 
     @Override
     public void save(PassportData passportData) {
-
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-
         em.persist(passportData);
-
         em.getTransaction().commit();
         em.close();
     }
