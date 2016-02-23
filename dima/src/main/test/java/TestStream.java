@@ -26,35 +26,25 @@ import java.util.stream.Stream;
  * Подробнее о Streams API - https://habrahabr.ru/company/luxoft/blog/270383/
  */
 
- public class TestStream {
+public class TestStream {
 
     @Test
-     public void uniqList() {
+    public void uniqList() {
         try {
             Stream<String> stringStream = Files.lines(Paths.get("TempSQl"));
             //List<String> list = Stream<String>(Files.lines(Paths.get("TempSQL"))).distinct().collect(Collectors.toList());
             List<String> list = stringStream.distinct().collect(Collectors.toList());
             System.out.println(list);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-     @Test
-     public void sumDubl() {
-         try {
-
-
-
-
-
-         }catch (Exception e){
-             e.printStackTrace();
-         }
-
-
-     }
-
-
+    @Test
+    public void sumDubl() {
+        try {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,5 +1,5 @@
 import org.junit.Test;
-import webcamp.j2ee01.entity.Employee;
+import TaskOne.entity.Employee;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class EmployeeParserTest {
@@ -64,5 +63,4 @@ public class EmployeeParserTest {
             System.out.println("Something get wrong " + e.getMessage());
         }
     }
-
 }

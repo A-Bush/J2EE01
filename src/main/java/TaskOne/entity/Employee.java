@@ -1,4 +1,4 @@
-package webcamp.j2ee01.entity;
+package TaskOne.entity;
 
 
 import java.util.Objects;

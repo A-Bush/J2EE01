@@ -1,4 +1,4 @@
-package webcamp.j2ee01;
+package TaskOne;
 
 /**
  * Created by randriyanov on 09.02.16.

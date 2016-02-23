@@ -1,59 +1,79 @@
-package webcamp.j2ee01;
+package entity;
 
-public class SQLTask1ClassHuman1 {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-    private int id;
+@Entity
+public class Human {
+
+    @Id
+    @GeneratedValue
+    private Long id;
     private String lastName;
     private String firstName;
-    private int age;
-    private double height;
-    private double weight;
-    private int passport;
+    private Integer age;
+    private Double height;
+    private Double weight;
+    private Integer passport;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+
+    public void setId(Long id) {
         this.id = id;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    public int getAge() {
+
+    public Integer getAge() {
         return age;
     }
-    public void setAge(int age) {
+
+    public void setAge(Integer age) {
         this.age = age;
     }
-    public double getHeight() {
+
+    public Double getHeight() {
         return height;
     }
-    public void setHeight(double height) {
+
+    public void setHeight(Double height) {
         this.height = height;
     }
-    public double getWeight() {
+
+    public Double getWeight() {
         return weight;
     }
-    public void setWeight(double weight) {
+
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
-    public int getPassport() {
+
+    public Integer getPassport() {
         return passport;
     }
-    public void setPassport(int passport) {
+
+    public void setPassport(Integer passport) {
         this.passport = passport;
     }
 
-    public SQLTask1ClassHuman1(int id, String lastName, String firstName, int age, double height, double weight, int passport) {
+    public Human(String lastName, String firstName, int age, double height, double weight, int passport) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -63,11 +83,14 @@ public class SQLTask1ClassHuman1 {
         this.passport = passport;
     }
 
-    public SQLTask1ClassHuman1(){};
+    public Human() {
+    }
+
+    ;
 
     @Override
     public String toString() {
-        return "SQLTask1ClassHuman1{" +
+        return "Human{" +
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
