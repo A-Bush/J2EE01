@@ -1,0 +1,22 @@
+group 'class'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '+'
+    compile group: 'org.hibernate', name: 'hibernate-validator-cdi', version: '+'
+    compile group: 'javax.el', name: 'javax.el-api', version: '+'
+    compile group: "org.projectlombok", name: "lombok", version: '+'
+    compile group: 'org.hibernate', name:"hibernate-core", version: '+'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+}
