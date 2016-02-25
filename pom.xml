@@ -12,6 +12,7 @@
         <module>galina</module>
         <module>dima</module>
         <module>vlad</module>
+        <module>eugene</module>
     </modules>
     <dependencies>
         <dependency>
