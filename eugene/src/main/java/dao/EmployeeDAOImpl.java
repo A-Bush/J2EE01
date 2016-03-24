@@ -89,7 +89,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         List<Employee> employees = null;
         try {
             transaction = session.beginTransaction();
-            employees = session.createQuery("from Employee").list();
+            employees = session.createCriteria(Employee.class).list();;
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (transaction != null) {

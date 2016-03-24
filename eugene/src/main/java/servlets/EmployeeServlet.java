@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
-@WebServlet(urlPatterns = "/employees")
+@WebServlet(urlPatterns = {"/", "/employees"})
 public class EmployeeServlet extends HttpServlet{
 
     private EmployeeDAOImpl employeeDAOimpl;
@@ -56,6 +56,7 @@ public class EmployeeServlet extends HttpServlet{
                 case "update":
                     Employee updatedEmployee = employeeDAOimpl.get(employeeID);
                     req.setAttribute("updatedEmployee", updatedEmployee);
+                    req.setAttribute("employeeList", employeeDAOimpl.getAll());
                     req.getRequestDispatcher("index.jsp").forward(req, resp);
                     break;
             }

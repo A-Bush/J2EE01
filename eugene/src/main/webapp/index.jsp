@@ -69,38 +69,43 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-10">
-                                <button type="submit" class="btn btn-success">Add employee</button>
+                                <c:choose>
+                                    <c:when test="${param.action == null}">
+                                        <button type="submit" class="btn btn-success">Add employee</button>
+                                    </c:when>
+                                    <c:when test="${param.action == 'update'}">
+                                        <button type="submit" class="btn btn-info">Update employee</button>
+                                    </c:when>
+                                </c:choose>
                             </div>
                         </div>
                     </form>
 
                     <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr class="info">
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Birthday</th>
-                                <th>Salary</th>
-                                <th>Department</th>
-                                <th>Email</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
+                        <tr class="info">
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Birthday</th>
+                            <th>Salary</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
 
-                            <c:forEach items="${employeeList}" var="employee">
-                                <jsp:useBean id="employee" scope="page" type="model.Employee"/>
-                                <tr>
-                                    <td>${employee.firstname}</td>
-                                    <td>${employee.lastname}</td>
-                                    <td>${employee.birthday}</td>
-                                    <td>${employee.salary}</td>
-                                    <td>${employee.department}</td>
-                                    <td>${employee.email}</td>
-                                    <td><a href="employees?action=update&id=${employee.id}" class="btn btn-info btn-xs" role="button">Update</a></td>
-                                    <td><a href="employees?action=delete&id=${employee.id}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
-                                </tr>
-                            </c:forEach>
-                        </thead>
+                        <c:forEach items="${employeeList}" var="employee">
+                            <jsp:useBean id="employee" scope="page" type="model.Employee"/>
+                            <tr>
+                                <td>${employee.firstname}</td>
+                                <td>${employee.lastname}</td>
+                                <td>${employee.birthday}</td>
+                                <td>${employee.salary}</td>
+                                <td>${employee.department}</td>
+                                <td>${employee.email}</td>
+                                <td style="width: 100px"><a href="employees?action=update&id=${employee.id}" style="width: 100%" class="btn btn-info btn-xs" role="button">Update</a></td>
+                                <td style="width: 100px"><a href="employees?action=delete&id=${employee.id}" style="width: 100%" class="btn btn-danger btn-xs" role="button">Delete</a></td>
+                            </tr>
+                        </c:forEach>
                     </table>
                 </div>
             </div>
