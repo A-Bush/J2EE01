@@ -23,14 +23,14 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="firstname">Firstname:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="firstname" value="${updatedEmployee.firstname}" class="form-control" id="firstname" placeholder="Enter firstname" required>
+                                <input type="text" name="firstname" value="${updatedEmployee.firstname}" maxlength="20" class="form-control" id="firstname" placeholder="Enter firstname" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="lastname">Lasttname:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="lastname" value="${updatedEmployee.lastname}" class="form-control" id="lastname" placeholder="Enter lastname" required>
+                                <input type="text" name="lastname" value="${updatedEmployee.lastname}" maxlength="20" class="form-control" id="lastname" placeholder="Enter lastname" required>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="email">Email:</label>
                             <div class="col-sm-5">
-                                <input type="email" name="email" value="${updatedEmployee.email}" class="form-control" id="email" placeholder="Enter email">
+                                <input type="email" name="email" value="${updatedEmployee.email}" maxlength="20" class="form-control" id="email" placeholder="Enter email">
                             </div>
                         </div>
 
@@ -75,6 +75,7 @@
                                     </c:when>
                                     <c:when test="${param.action == 'update'}">
                                         <button type="submit" class="btn btn-info">Update employee</button>
+                                        <button type="submit" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
                                     </c:when>
                                 </c:choose>
                             </div>
